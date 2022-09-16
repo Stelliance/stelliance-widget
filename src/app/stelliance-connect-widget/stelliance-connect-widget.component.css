@@ -1,0 +1,17 @@
+.stelliance-widget-icon {
+  top: 23px;
+  left: 21px;
+}
+
+.stelliance-tooltip {
+  left: 4px;
+  top: 64px !important;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.stelliance-tooltip-item {
+  padding: 20px;
+}

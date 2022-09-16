@@ -1,10 +1,10 @@
 <div class="wrapper">
   <div class="icon grid">
-    <div class="tooltip">
-      <div *ngFor="let widgetApp of widgetApps">
-        <img [src]="widgetApp.logo" width="20" height="20" />
+    <div class="tooltip stelliance-tooltip">
+      <div *ngFor="let widgetApp of widgetApps" class="stelliance-tooltip-item">
+        <img [src]="widgetApp.logo" width="60" height="60" />
       </div>
     </div>
-    <span><i class="gg-menu-grid-o"></i></span>
+    <span><i class="gg-menu-grid-o stelliance-widget-icon"></i></span>
   </div>
 </div>
