@@ -8,9 +8,8 @@ describe('StellianceConnectWidgetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StellianceConnectWidgetComponent ]
-    })
-    .compileComponents();
+      declarations: [StellianceConnectWidgetComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,6 @@ describe('StellianceConnectWidgetComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.widgetApps).toBeDefined();
   });
 });
