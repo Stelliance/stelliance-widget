@@ -53,3 +53,7 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     needs: build
+
+  pages:
+    needs: release
+    uses: RedFroggy/stelliance-widget/.github/workflows/pages.yml@main
