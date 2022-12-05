@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { StellianceConnectWidgetConfig } from './stelliance-connect-widget-config.model';
 
-const keyLocalStorage = 'counter-stelliance-connect';
-
-interface StellianceConnectWidgetConfig {
-  id: string;
-  logo: string;
-  name: string;
-  clickCount?: number;
-}
+const STELLIANCE_CONNECT_LINKS_COUNTER = 'counter_stelliance_connect';
 
 @Component({
   selector: 'stelliance-connect-widget',
@@ -41,30 +35,32 @@ export class StellianceConnectWidgetComponent implements OnInit {
   ngOnInit(): void {
     console.log('stelliance widget is initialized');
 
-    this.widgetApps.forEach((app) => {
-      app.clickCount = Number(localStorage.getItem(keyLocalStorage + app.id)) || 0;
+    this.widgetApps.forEach((widgetApp) => {
+      widgetApp.clickCount = Number(localStorage.getItem(`${STELLIANCE_CONNECT_LINKS_COUNTER}_${widgetApp.id}`)) || 0;
     });
 
-    this.widgetApps.sort(this.sortFn);
+    this.widgetApps.sort(this.sortByMostClickedApps);
   }
 
   navigateTo(widgetApp: StellianceConnectWidgetConfig) {
     // add count click
-    this.addClick(widgetApp);
+    this.storeApplicationClicks(widgetApp);
 
     // navigate to app URL
     // TODO
   }
 
-  addClick(widgetApp: StellianceConnectWidgetConfig): void {
-    const newValue = widgetApp.clickCount ? widgetApp.clickCount + 1 : 1;
-    widgetApp.clickCount = newValue;
-    localStorage.setItem(keyLocalStorage + widgetApp.id, newValue.toString());
+  private sortByMostClickedApps(a: StellianceConnectWidgetConfig, b: StellianceConnectWidgetConfig): number {
+    a.clickCount = a.clickCount !== undefined ? a.clickCount : 0;
+    b.clickCount = b.clickCount !== undefined ? b.clickCount : 0;
+    if (a.clickCount < b.clickCount) return 1;
+    if (a.clickCount > b.clickCount) return -1;
+    return 0;
   }
 
-  sortFn = (a: StellianceConnectWidgetConfig, b: StellianceConnectWidgetConfig): number => {
-    if ((a.clickCount || 0) < (b.clickCount || 0)) return 1;
-    if ((a.clickCount || 0) > (b.clickCount || 0)) return -1;
-    return 0;
-  };
+  private storeApplicationClicks(widgetApp: StellianceConnectWidgetConfig): void {
+    const newValue = widgetApp.clickCount ? widgetApp.clickCount + 1 : 1;
+    widgetApp.clickCount = newValue;
+    localStorage.setItem(`${STELLIANCE_CONNECT_LINKS_COUNTER}_${widgetApp.id}`, newValue.toString());
+  }
 }
