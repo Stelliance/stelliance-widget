@@ -1,12 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
+const keyLocalStorage = 'counter-stelliance-connect';
+
+interface StellianceConnectWidgetConfig {
+  id: string;
+  logo: string;
+  name: string;
+  clickCount?: number;
+}
+
 @Component({
   selector: 'stelliance-connect-widget',
   templateUrl: './stelliance-connect-widget.component.html',
   styleUrls: ['./stelliance-connect-widget.component.css'],
 })
 export class StellianceConnectWidgetComponent implements OnInit {
-  public widgetApps = [
+  public widgetApps: StellianceConnectWidgetConfig[] = [
     {
       id: 'hiveo',
       logo: 'https://lh3.googleusercontent.com/JLXPNxeFb6nYW_fQRE6JT2N7OU4GLytGn5d2i5ljBw-B2N6C8TZ9VN2PXLhLkeLOefMEkdz8vYliRVm4Y7y4',
@@ -31,5 +40,31 @@ export class StellianceConnectWidgetComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('stelliance widget is initialized');
+
+    this.widgetApps.forEach((app) => {
+      app.clickCount = Number(localStorage.getItem(keyLocalStorage + app.id)) || 0;
+    });
+
+    this.widgetApps.sort(this.sortFn);
   }
+
+  navigateTo(widgetApp: StellianceConnectWidgetConfig) {
+    // add count click
+    this.addClick(widgetApp);
+
+    // navigate to app URL
+    // TODO
+  }
+
+  addClick(widgetApp: StellianceConnectWidgetConfig): void {
+    const newValue = widgetApp.clickCount ? widgetApp.clickCount + 1 : 1;
+    widgetApp.clickCount = newValue;
+    localStorage.setItem(keyLocalStorage + widgetApp.id, newValue.toString());
+  }
+
+  sortFn = (a: StellianceConnectWidgetConfig, b: StellianceConnectWidgetConfig): number => {
+    if ((a.clickCount || 0) < (b.clickCount || 0)) return 1;
+    if ((a.clickCount || 0) > (b.clickCount || 0)) return -1;
+    return 0;
+  };
 }

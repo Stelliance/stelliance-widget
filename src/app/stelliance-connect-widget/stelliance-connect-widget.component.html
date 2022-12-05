@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="icon grid">
     <div class="tooltip stelliance-tooltip">
-      <div *ngFor="let widgetApp of widgetApps" class="stelliance-tooltip-item">
+      <div *ngFor="let widgetApp of widgetApps" class="stelliance-tooltip-item" (click)="navigateTo(widgetApp)">
         <img [src]="widgetApp.logo" width="60" height="60" />
       </div>
     </div>
