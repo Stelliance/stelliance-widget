@@ -7,7 +7,7 @@
     "concat": "concat -o ./dist/angular-element-app/output.js ./dist/angular-element-app/runtime.js ./dist/angular-element-app/polyfills.js ./dist/angular-element-app/main.js",
     "build": "ng build --configuration production --output-hashing=none && npm run concat",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --code-coverage",
     "preview:serve": "./build.sh && npx live-server preview",
     "prepare": "husky install"
   },

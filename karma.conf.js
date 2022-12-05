@@ -25,6 +25,17 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
+      check: {
+        global: {
+          statements: 100,
+          branches: 100,
+          functions: 100,
+          lines: 100,
+          excludes: [
+            'src/**/*.spec.ts'
+          ]
+        }
+      },
       dir: require('path').join(__dirname, './coverage/angular-element-app'),
       subdir: '.',
       reporters: [
