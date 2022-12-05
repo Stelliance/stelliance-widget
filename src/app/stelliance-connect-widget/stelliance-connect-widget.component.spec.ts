@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StellianceConnectWidgetFixtures } from '../tests/fixtures/stelliance-connect-widget-config.fixtures';
-import { Storage } from '../tests/storage.model';
 import { StellianceConnectWidgetConfig } from './stelliance-connect-widget-config.model';
-
 import { StellianceConnectWidgetComponent } from './stelliance-connect-widget.component';
 
 describe('StellianceConnectWidgetComponent', () => {
@@ -12,7 +10,6 @@ describe('StellianceConnectWidgetComponent', () => {
   let storeApplicationClicksSpy: jasmine.Spy<any>;
   let getItemSpy: jasmine.Spy<any>;
   let setItemSpy: jasmine.Spy<any>;
-  let store: Storage = {};
 
   const STELLIANCE_CONNECT_LINKS_COUNTER = 'counter_stelliance_connect';
   const aConfig = StellianceConnectWidgetFixtures.aStellianceConnectWidgetConfig();
@@ -28,16 +25,7 @@ describe('StellianceConnectWidgetComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    // const mockLocalStorage = {
-    //   getItem: (key: string): string | null => {
-    //     return key in store ? store[key] : null;
-    //   },
-    //   setItem: (key: string, value: string) => {
-    //     store[key] = `${value}`;
-    //   },
-    // };
     getItemSpy = spyOn(localStorage, 'getItem');
-
     setItemSpy = spyOn(localStorage, 'setItem');
 
     component.widgetApps = aConfig;
@@ -99,14 +87,6 @@ describe('StellianceConnectWidgetComponent', () => {
         )
       ).toBe(0);
     });
-    it('when a.clickCount is undefined and b.clickCount is undefined should return 0', () => {
-      expect(
-        (component as any).sortByMostClickedApps(
-          { clickCount: undefined } as StellianceConnectWidgetConfig,
-          { clickCount: undefined } as StellianceConnectWidgetConfig
-        )
-      ).toBe(0);
-    });
   });
 
   describe('storeApplicationClicks method', () => {
@@ -138,16 +118,6 @@ describe('StellianceConnectWidgetComponent', () => {
       (component as any).storeApplicationClicks(component.widgetApps[0]);
       (component as any).storeApplicationClicks(component.widgetApps[0]);
       expect(setItemSpy).toHaveBeenCalledTimes(3);
-    });
-
-    it('when item.clickCount is undefined, should set item.clickCount value with 1', () => {
-      console.log('component.widgetApps', component.widgetApps);
-
-      // fixture.componentRef
-      // component.widgetApps = aStellianceConnectWidgetConfig;
-
-      (component as any).storeApplicationClicks(component.widgetApps[1]);
-      expect(component.widgetApps[1].clickCount).toBe(1);
     });
   });
 });
