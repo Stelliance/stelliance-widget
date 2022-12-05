@@ -1,19 +1,23 @@
-import { Injector, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { createCustomElement } from '@angular/elements';
-import { StellianceConnectWidgetComponent } from './stelliance-connect-widget/stelliance-connect-widget.component';
-import { OrderByPipe } from './utils/order-by-pipe';
+import {Injector, NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {createCustomElement} from '@angular/elements';
+import {StellianceConnectWidgetComponent} from './stelliance-connect-widget/stelliance-connect-widget.component';
 
 @NgModule({
-  declarations: [StellianceConnectWidgetComponent, OrderByPipe],
-  imports: [BrowserModule],
+  declarations: [
+    StellianceConnectWidgetComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
   providers: [],
-  entryComponents: [StellianceConnectWidgetComponent],
+  entryComponents: [StellianceConnectWidgetComponent]
 })
 export class AppModule {
   constructor(injector: Injector) {
-    const widgetCustomElement = createCustomElement(StellianceConnectWidgetComponent, { injector });
-    customElements.define('stc-app-widget', widgetCustomElement);
+    const widgetCustomElement = createCustomElement(StellianceConnectWidgetComponent, {injector});
+    customElements.define('stc-app-widget', widgetCustomElement)
   }
   ngDoBootstrap() {}
+
 }

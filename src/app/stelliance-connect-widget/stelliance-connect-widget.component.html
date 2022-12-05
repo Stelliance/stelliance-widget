@@ -1,13 +1,10 @@
 <div class="wrapper">
   <div class="icon grid">
     <div class="tooltip stelliance-tooltip">
-      <div *ngFor="let widgetApp of widgetApps" class="stelliance-tooltip-item" (click)="navigateTo(widgetApp)">
+      <div *ngFor="let widgetApp of widgetApps" class="stelliance-tooltip-item">
         <img [src]="widgetApp.logo" width="60" height="60" />
       </div>
     </div>
     <span><i class="gg-menu-grid-o stelliance-widget-icon"></i></span>
   </div>
 </div>
-<!-- <div *ngFor="let widgetApp of widgetApps | orderBy:sortFn" class="stelliance-tooltip-item" (click)="navigateTo(widgetApp)">
-  <img [src]="widgetApp.logo" width="60" height="60" />
-</div> -->
