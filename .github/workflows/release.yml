@@ -1,0 +1,46 @@
+name: Release
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+on:
+  workflow_call:
+    secrets:
+      GH_TOKEN:
+        required: true
+      NPM_TOKEN:
+        required: true
+
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    name: Release
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Git checkout for source code analysis
+        uses: actions/checkout@v3
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install Dependencies
+        run: |
+          npm ci
+      - name: Cache dist folder
+        uses: actions/cache@v3
+        with:
+          path: dist
+          key: stelliance-widget-dist-${{ github.run_id }}
+
+      - name: release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+          cp package.json dist/angular-element-app
+          cp package.json dist/module
+          npm run release
