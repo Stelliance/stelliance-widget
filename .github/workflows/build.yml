@@ -48,7 +48,7 @@ jobs:
             key: stelliance-widget-dist-${{ github.run_id }}
 
   release:
-    uses: RedFroggy/stelliance-widget/.github/workflows/release.yml@main
+    uses: Stelliance/stelliance-widget/.github/workflows/release.yml@main
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
