@@ -56,4 +56,4 @@ jobs:
 
   pages:
     needs: release
-    uses: RedFroggy/stelliance-widget/.github/workflows/pages.yml@main
+    uses: Stelliance/stelliance-widget/.github/workflows/pages.yml@main
