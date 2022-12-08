@@ -30,6 +30,7 @@ jobs:
           architecture: x64
       - name: Generate demo
         run: |
+          npm ci
           ./build.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
