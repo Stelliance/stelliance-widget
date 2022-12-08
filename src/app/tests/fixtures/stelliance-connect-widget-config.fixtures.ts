@@ -21,6 +21,12 @@ export class StellianceConnectWidgetFixtures {
         name: 'name3',
         clickCount: 0,
       },
+      {
+        id: 'id4',
+        logo: 'logo4',
+        name: 'name4',
+        clickCount: 0,
+      },
     ];
   }
 }
