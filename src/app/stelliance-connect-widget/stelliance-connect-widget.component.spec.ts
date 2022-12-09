@@ -1,8 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
+import { StellianceConnectWidgetConfigService } from '../services/stelliance-connect-widget-config.service';
 import { StellianceConnectWidgetAppsComponent } from '../stelliance-connect-widget-apps/stelliance-connect-widget-apps.component';
 import { StellianceConnectWidgetFixtures } from '../tests/fixtures/stelliance-connect-widget-config.fixtures';
 import { StellianceConnectWidgetConfig } from './stelliance-connect-widget-config.model';
 import { StellianceConnectWidgetComponent } from './stelliance-connect-widget.component';
+
+class MockStellianceConnectWidgetConfigService {
+  isLoggedIn = true;
+  user = { name: 'Test User' };
+}
 
 describe('StellianceConnectWidgetComponent', () => {
   let component: StellianceConnectWidgetComponent;
@@ -12,18 +19,30 @@ describe('StellianceConnectWidgetComponent', () => {
   let getItemSpy: jasmine.Spy<any>;
   let setItemSpy: jasmine.Spy<any>;
 
+  const configService = jasmine.createSpyObj('StellianceConnectWidgetConfigService', ['getWidgetsConfig']);
+  let getWidgetsConfigSpy: jasmine.Spy<any>;
+
   const STELLIANCE_CONNECT_LINKS_COUNTER = 'counter_stelliance_connect';
   const aConfig = StellianceConnectWidgetFixtures.aStellianceConnectWidgetConfig();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [StellianceConnectWidgetComponent, StellianceConnectWidgetAppsComponent],
+      providers: [
+        StellianceConnectWidgetConfigService,
+        {
+          provide: StellianceConnectWidgetConfigService,
+          useValue: configService,
+        },
+      ],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StellianceConnectWidgetComponent);
     component = fixture.componentInstance;
+
+    getWidgetsConfigSpy = configService.getWidgetsConfig.and.returnValue(of(aConfig));
     fixture.detectChanges();
 
     getItemSpy = spyOn(localStorage, 'getItem');
