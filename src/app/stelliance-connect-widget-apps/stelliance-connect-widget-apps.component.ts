@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { StellianceConnectWidgetConfig } from '../stelliance-connect-widget/stelliance-connect-widget-config.model';
 import {
-  DEFAULT_APP_LOGO_HEIGHT,
-  DEFAULT_APP_LOGO_WIDTH,
+  DEFAULT_APP_LOGO_MAX_WIDTH,
+  DEFAULT_APP_LOGO_MAX_HEIGHT,
 } from '../stelliance-connect-widget/stelliance-connect-widget.constants';
 
 @Component({
@@ -12,8 +12,8 @@ import {
 })
 export class StellianceConnectWidgetAppsComponent {
   @Input() apps: StellianceConnectWidgetConfig[] = [];
-  @Input() appLogoWidth: string = DEFAULT_APP_LOGO_WIDTH;
-  @Input() appLogoHeight: string = DEFAULT_APP_LOGO_HEIGHT;
+  @Input() appLogoWidth: string = DEFAULT_APP_LOGO_MAX_WIDTH;
+  @Input() appLogoHeight: string = DEFAULT_APP_LOGO_MAX_HEIGHT;
 
   @Output() widgetAppClicked = new EventEmitter<StellianceConnectWidgetConfig>();
 }

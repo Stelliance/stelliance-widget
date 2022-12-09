@@ -51,7 +51,7 @@
   transition: opacity 0.2s;
 }
 
-.wrapper .icon .tooltip:before {
+/* .wrapper .icon .tooltip:before {
   position: absolute;
   content: '';
   height: 15px;
@@ -59,7 +59,7 @@
   bottom: -8px;
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
-}
+} */
 .wrapper .icon:hover span,
 .wrapp .icon:hover .tooltip {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
