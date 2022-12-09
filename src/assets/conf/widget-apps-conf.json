@@ -1,0 +1,46 @@
+[
+  {
+    "id": "faircost",
+    "logo": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia-exp1.licdn.com%2Fdms%2Fimage%2FC4D0BAQGbvcg9Q-IFHw%2Fcompany-logo_200_200%2F0%2F1601367777096%3Fe%3D2147483647%26v%3Dbeta%26t%3DsjTuhAiSbSFHTjtaGlZhtwgJoTmuxShaGM4gr5YNNgs&imgrefurl=https%3A%2F%2Ffr.linkedin.com%2Fcompany%2Fthefaircost&tbnid=41inFghWa-0m9M&vet=12ahUKEwjYr5TFmer7AhW6gc4BHSIQCoEQMygAegQIARBg..i&docid=m5zmmfi-DmuK0M&w=200&h=200&q=faircost&ved=2ahUKEwjYr5TFmer7AhW6gc4BHSIQCoEQMygAegQIARBg",
+    "name": "Faircost",
+    "urls": [
+      {
+        "env": "prod",
+        "url": "https://app.thefaircost.com"
+      }
+    ]
+  },
+  {
+    "id": "viaco",
+    "logo": "https://c.smartrecruiters.com/sr-careersite-image-prod-dc5/5ed53051e3261858ae571e66/0549d054-280d-44de-86d1-0f9b9635f6cf?r=s3-eu-central-1",
+    "name": "Viaco",
+    "urls": [
+      {
+        "env": "prod",
+        "url": "https://app.viaco.fr"
+      }
+    ]
+  },
+  {
+    "id": "subclic",
+    "logo": "https://iam-subclic.herokuapp.com/auth/resources/9uib2/login/subclic/img/picto_subclic.svg",
+    "name": "Subclic",
+    "urls": [
+      {
+        "env": "prod",
+        "url": "https://iam-subclic.herokuapp.com"
+      }
+    ]
+  },
+  {
+    "id": "ofa",
+    "logo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.minalogic.com%2Fannuaire%2Fattestation-legale-ofa%2F&psig=AOvVaw33TR7YQyPKrO5AJNrMJrc0&ust=1670595344178000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLjs2-Ka6vsCFQAAAAAdAAAAABAD",
+    "name": "OFA",
+    "urls": [
+      {
+        "env": "prod",
+        "url": "https://identity.onceforall.com"
+      }
+    ]
+  }
+]
