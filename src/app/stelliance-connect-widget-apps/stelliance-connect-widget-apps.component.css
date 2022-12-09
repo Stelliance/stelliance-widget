@@ -1,0 +1,9 @@
+.stelliance-tooltip-items {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: start;
+}
+
+.stelliance-tooltip-item {
+  padding: 20px;
+}

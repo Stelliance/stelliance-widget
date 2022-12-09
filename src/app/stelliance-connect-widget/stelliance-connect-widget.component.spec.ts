@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { StellianceConnectWidgetAppsComponent } from '../stelliance-connect-widget-apps/stelliance-connect-widget-apps.component';
 import { StellianceConnectWidgetFixtures } from '../tests/fixtures/stelliance-connect-widget-config.fixtures';
 import { StellianceConnectWidgetConfig } from './stelliance-connect-widget-config.model';
 import { StellianceConnectWidgetComponent } from './stelliance-connect-widget.component';
@@ -16,7 +17,7 @@ describe('StellianceConnectWidgetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [StellianceConnectWidgetComponent],
+      declarations: [StellianceConnectWidgetComponent, StellianceConnectWidgetAppsComponent],
     }).compileComponents();
   });
 
@@ -37,18 +38,20 @@ describe('StellianceConnectWidgetComponent', () => {
   });
 
   it('ngOnInit method', () => {
-    getItemSpy.and.returnValues('8', undefined, '1');
+    getItemSpy.and.returnValues('8', undefined, '1', '2');
 
     component.ngOnInit();
 
-    expect(component.widgetApps[0].id).toEqual('id1');
-    expect(component.widgetApps[0].clickCount).toEqual(8);
+    expect(component.widgetAppsFavorites.length).toEqual(1);
+    expect(component.widgetAppsFavorites[0].id).toEqual('id1');
+    expect(component.widgetAppsFavorites[0].clickCount).toEqual(8);
 
-    expect(component.widgetApps[1].id).toEqual('id3');
-    expect(component.widgetApps[1].clickCount).toEqual(1);
+    expect(component.widgetAppsNotFavorites.length).toEqual(3);
+    expect(component.widgetAppsNotFavorites[0].id).toEqual('id4');
+    expect(component.widgetAppsNotFavorites[0].clickCount).toEqual(2);
 
-    expect(component.widgetApps[2].id).toEqual('id2');
-    expect(component.widgetApps[2].clickCount).toEqual(0);
+    expect(component.widgetAppsNotFavorites[2].id).toEqual('id2');
+    expect(component.widgetAppsNotFavorites[2].clickCount).toEqual(0);
   });
 
   describe('navigateTo method', () => {

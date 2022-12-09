@@ -1,9 +1,22 @@
 <div class="wrapper">
   <div class="icon grid">
     <div class="tooltip stelliance-tooltip">
-      <div *ngFor="let widgetApp of widgetApps" class="stelliance-tooltip-item" (click)="navigateTo(widgetApp)">
-        <img [src]="widgetApp.logo" width="60" height="60" />
-      </div>
+      <app-stelliance-connect-widget-apps
+        [apps]="widgetAppsFavorites"
+        [appLogoWidth]="appLogoWidth"
+        [appLogoHeight]="appLogoHeight"
+        (widgetAppClicked)="navigateTo($event)"
+      ></app-stelliance-connect-widget-apps>
+      <hr
+        *ngIf="widgetAppsFavorites.length > 0 && widgetAppsNotFavorites.length > 0"
+        class="stelliance-tooltip-separator"
+      />
+      <app-stelliance-connect-widget-apps
+        [apps]="widgetAppsNotFavorites"
+        [appLogoWidth]="appLogoWidth"
+        [appLogoHeight]="appLogoHeight"
+        (widgetAppClicked)="navigateTo($event)"
+      ></app-stelliance-connect-widget-apps>
     </div>
     <span><i class="gg-menu-grid-o stelliance-widget-icon"></i></span>
   </div>

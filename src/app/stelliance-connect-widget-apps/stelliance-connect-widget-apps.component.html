@@ -1,0 +1,5 @@
+<div class="stelliance-tooltip-items" *ngIf="apps?.length">
+  <div *ngFor="let widgetApp of apps" class="stelliance-tooltip-item" (click)="widgetAppClicked.emit(widgetApp)">
+    <img [src]="widgetApp.logo" [width]="appLogoWidth" [height]="appLogoHeight" />
+  </div>
+</div>

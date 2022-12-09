@@ -24,7 +24,7 @@
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   text-align: center;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .wrapper .icon span i {
@@ -42,11 +42,13 @@
   color: white;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.2s;
 }
 
 .wrapper .icon:hover .tooltip {
   opacity: 1;
   pointer-events: auto;
+  transition: opacity 0.2s;
 }
 
 .wrapper .icon .tooltip:before {
@@ -63,7 +65,7 @@
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
 }
 .wrapper .icon:hover span {
-  color: #fff;
+  color: #0008;
 }
 .wrapper .facebook:hover span,
 .wrapper .facebook:hover .tooltip,
