@@ -24,6 +24,8 @@ export class StellianceConnectWidgetComponent implements OnInit {
   widgetAppsFavorites: StellianceConnectWidgetConfig[] = [];
   widgetAppsNotFavorites: StellianceConnectWidgetConfig[] = [];
 
+  showWidgets = false;
+
   private widgetAppsFavoritesLimit = DEFAULT_MIN_CLICK_TO_FAVORITE;
 
   ngOnInit(): void {
