@@ -1,6 +1,6 @@
 <div class="wrapper">
-  <div class="icon grid">
-    <div class="tooltip stelliance-tooltip">
+  <div class="icon grid" (click)="showWidgets = !showWidgets" [ngClass]="{ openned: showWidgets }">
+    <div class="tooltip stelliance-tooltip" [ngClass]="{ openned: showWidgets }">
       <app-stelliance-connect-widget-apps
         [apps]="widgetAppsFavorites"
         [appLogoWidth]="appLogoWidth"
@@ -18,6 +18,6 @@
         (widgetAppClicked)="navigateTo($event)"
       ></app-stelliance-connect-widget-apps>
     </div>
-    <span><i class="gg-menu-grid-o stelliance-widget-icon"></i></span>
+    <span class="icon-grid"><i class="gg-menu-grid-o stelliance-widget-icon"></i></span>
   </div>
 </div>

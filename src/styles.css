@@ -14,7 +14,7 @@
   z-index: 2;
 }
 
-.wrapper .icon span {
+.wrapper .icon .icon-grid {
   position: relative;
   z-index: 2;
   height: 60px;
@@ -24,10 +24,10 @@
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   text-align: center;
-  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.2s;
 }
 
-.wrapper .icon span i {
+.wrapper .icon .icon-grid i {
   font-size: 25px;
   line-height: 60px;
 }
@@ -42,48 +42,32 @@
   color: white;
   opacity: 0;
   pointer-events: none;
+  border-radius: 6px;
   transition: opacity 0.2s;
 }
 
-.wrapper .icon:hover .tooltip {
+.wrapper .icon .tooltip.openned {
   opacity: 1;
-  pointer-events: auto;
   transition: opacity 0.2s;
 }
 
-/* .wrapper .icon .tooltip:before {
-  position: absolute;
-  content: '';
-  height: 15px;
-  width: 15px;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-} */
-.wrapper .icon:hover span,
+.wrapper .icon .tooltip.openned .stelliance-tooltip-item {
+  pointer-events: visible;
+}
+
+.wrapper .icon:hover .icon-grid {
+  background: rgba(200, 200, 200, 0.1);
+}
+
+.wrapper .icon.openned .icon-grid {
+  background: rgba(200, 200, 200, 0.1);
+}
+
+.wrapper .icon:hover .icon-grid,
 .wrapp .icon:hover .tooltip {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
 }
-.wrapper .icon:hover span {
+
+.wrapper .icon:hover .icon-grid {
   color: #0008;
-}
-.wrapper .facebook:hover span,
-.wrapper .facebook:hover .tooltip,
-.wrapper .facebook:hover .tooltip:before {
-  background: #3b5999;
-}
-.wrapper .twitter:hover span,
-.wrapper .twitter:hover .tooltip,
-.wrapper .twitter:hover .tooltip:before {
-  background: #46c1f6;
-}
-.wrapper .github:hover span,
-.wrapper .github:hover .tooltip,
-.wrapper .github:hover .tooltip:before {
-  background: #333;
-}
-.wrapper .youtube:hover span,
-.wrapper .youtube:hover .tooltip,
-.wrapper .youtube:hover .tooltip:before {
-  background: #de463b;
 }

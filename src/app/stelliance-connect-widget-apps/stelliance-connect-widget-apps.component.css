@@ -8,12 +8,30 @@
   display: flex;
   margin: auto;
   padding: 20px;
+  flex-direction: column;
+}
+
+.stelliance-tooltip-item .name-container {
+  display: flex;
+  margin: auto;
+}
+
+.stelliance-tooltip-item .name-container span {
+  color: grey;
+}
+
+.stelliance-tooltip-item .image-container img {
+  display: flex;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 @media screen and (max-width: 480px) {
   .stelliance-tooltip-items {
     grid-template-columns: auto auto;
   }
+
   .stelliance-tooltip-item {
     padding: 10px;
   }
