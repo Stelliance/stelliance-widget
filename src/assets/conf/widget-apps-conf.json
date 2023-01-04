@@ -1,46 +1,44 @@
-[
-  {
-    "id": "faircost",
-    "logo": "https://stelliance.github.io/stelliance-widget/assets/images/faircost.png",
-    "name": "Faircost",
-    "urls": [
-      {
-        "env": "prod",
-        "url": "https://app.thefaircost.com"
-      }
-    ]
+{
+  "stelliance":{
+    "basUrl": "https://connect.stelliance.eu/auth/realms/stelliance-connect-dev/protocol/openid-connect/auth?client_id=widget&response_mode=fragment&response_type=code&scope=openid&code_challenge_method=S256"
   },
-  {
-    "id": "viaco",
-    "logo": "https://stelliance.github.io/stelliance-widget/assets/images/viaco.png",
-    "name": "Viaco",
-    "urls": [
-      {
-        "env": "prod",
-        "url": "https://app.viaco.fr"
-      }
-    ]
-  },
-  {
-    "id": "subclic",
-    "logo": "https://stelliance.github.io/stelliance-widget/assets/images/subclic.png",
-    "name": "Subclic",
-    "urls": [
-      {
-        "env": "prod",
-        "url": "https://iam-subclic.herokuapp.com"
-      }
-    ]
-  },
-  {
-    "id": "ofa",
-    "logo": "https://www.minalogic.com/wp-content/uploads/2020/07/minalogic-member-fr-attestation-legale-ofa-333x250.png",
-    "name": "OFA",
-    "urls": [
-      {
-        "env": "prod",
-        "url": "https://identity.onceforall.com"
-      }
-    ]
-  }
-]
+  "applications": [
+    {
+      "id": "faircost",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/faircost.png",
+      "name": "Faircost",
+      "idpName": "",
+      "urls": [
+        {
+          "env": "prod",
+          "redirectUri": "https://identity.dev.subclic.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code%26client_id=legacy-subclic%26redirect_uri=https%3A%2F%2Fdev.subclic.com%2F%26kc_idp_hint=stelliance-connect"
+        }
+      ]
+    },
+    {
+      "id": "viaco",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/viaco.png",
+      "name": "Viaco",
+      "idpName": "",
+      "urls": [
+        {
+          "env": "prod",
+          "redirectUri": "https://identity.dev.subclic.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code%26client_id=legacy-subclic%26redirect_uri=https%3A%2F%2Fdev.subclic.com%2F%26kc_idp_hint=stelliance-connect"
+        }
+      ]
+    },
+    {
+      "id": "subclic",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/subclic.png",
+      "name": "Subclic",
+      "idpName": "",
+      "urls": [
+        {
+          "env": "prod",
+          "redirectUri": "https://identity.dev.subclic.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code%26client_id=legacy-subclic%26redirect_uri=https%3A%2F%2Fdev.subclic.com%2F%26kc_idp_hint=stelliance-connect"
+        }
+      ]
+    }
+  ]
+
+}

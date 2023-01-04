@@ -1,11 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StellianceConnectWidgetConfigService } from '../services/stelliance-connect-widget-config.service';
-import { StellianceConnectWidgetConfig } from './stelliance-connect-widget-config.model';
+import {
+  StellianceConnectWidgetApplicationConfig,
+  StellianceConnectWidgetConfig,
+} from './stelliance-connect-widget-config.model';
 import {
   DEFAULT_APP_LOGO_MAX_HEIGHT,
   DEFAULT_APP_LOGO_MAX_WIDTH,
   DEFAULT_MIN_CLICK_TO_FAVORITE,
 } from './stelliance-connect-widget.constants';
+import { CodeChallengeUtil } from '../../shared/util/code-challenge.util';
 
 const STELLIANCE_CONNECT_LINKS_COUNTER = 'counter_stelliance_connect';
 
@@ -18,56 +22,61 @@ export class StellianceConnectWidgetComponent implements OnInit {
   @Input() appLogoWidth: string = DEFAULT_APP_LOGO_MAX_WIDTH;
   @Input() appLogoHeight: string = DEFAULT_APP_LOGO_MAX_HEIGHT;
 
-  constructor(private configService: StellianceConnectWidgetConfigService) {}
+  @Input() environment: 'dev' | 'prod' = 'prod';
 
-  widgetApps: StellianceConnectWidgetConfig[] = [];
-  widgetAppsFavorites: StellianceConnectWidgetConfig[] = [];
-  widgetAppsNotFavorites: StellianceConnectWidgetConfig[] = [];
+  widgetsConfig: StellianceConnectWidgetConfig;
+  widgetAppsFavorites: StellianceConnectWidgetApplicationConfig[] = [];
+  widgetAppsNotFavorites: StellianceConnectWidgetApplicationConfig[] = [];
 
   showWidgets = false;
 
   private widgetAppsFavoritesLimit = DEFAULT_MIN_CLICK_TO_FAVORITE;
 
+  constructor(private configService: StellianceConnectWidgetConfigService) {
+    this.widgetsConfig = {
+      applications: [],
+      stelliance: { baseUrl: '' },
+    };
+  }
+
   ngOnInit(): void {
-    this.configService.getWidgetsConfig().subscribe((configs: StellianceConnectWidgetConfig[]) => {
-      this.widgetApps = configs;
+    this.configService.getWidgetsConfig().subscribe((widgetsConfig: StellianceConnectWidgetConfig) => {
+      this.widgetsConfig = widgetsConfig;
       this.organizeWidgets();
     });
   }
 
-  navigateTo(widgetApp: StellianceConnectWidgetConfig) {
+  navigateTo(widgetApp: StellianceConnectWidgetApplicationConfig) {
     this.storeApplicationClicks(widgetApp);
 
     // Active to organize widgets dynamically
     this.organizeWidgets();
 
-    // Navigate to app URL
-    // TODO
+    const redirectUrl = widgetApp.urls.find((url) => url.env === this.environment);
+    if (redirectUrl) {
+      return CodeChallengeUtil.generate().then((code) => {
+        let appRedirectUrl = `${this.widgetsConfig.stelliance.baseUrl}&kc_idp_hint${widgetApp.idpName}&redirect_uri=${redirectUrl.redirectUri}&code_challenge=${code}`;
+        return window.open(appRedirectUrl, '_blank');
+      });
+    }
+    return Promise.reject('No redirect url found for environment' + this.environment);
   }
 
   private organizeWidgets() {
-    this.widgetApps.forEach((widgetApp) => {
+    this.widgetsConfig.applications.forEach((widgetApp) => {
       widgetApp.clickCount = Number(localStorage.getItem(`${STELLIANCE_CONNECT_LINKS_COUNTER}_${widgetApp.id}`)) || 0;
     });
-    this.widgetApps.sort(this.sortByMostClickedApps);
+    this.widgetsConfig.applications.sort((a, b) => b.clickCount - a.clickCount);
 
-    this.widgetAppsNotFavorites = [];
-    this.widgetAppsFavorites = [];
-    this.widgetApps.forEach((widgetApp) =>
-      (widgetApp.clickCount < this.widgetAppsFavoritesLimit
-        ? this.widgetAppsNotFavorites
-        : this.widgetAppsFavorites
-      ).push(widgetApp)
+    this.widgetAppsNotFavorites = this.widgetsConfig.applications.filter(
+      (widgetApp) => widgetApp.clickCount < this.widgetAppsFavoritesLimit
+    );
+    this.widgetAppsFavorites = this.widgetsConfig.applications.filter(
+      (widgetApp) => widgetApp.clickCount >= this.widgetAppsFavoritesLimit
     );
   }
 
-  private sortByMostClickedApps(a: StellianceConnectWidgetConfig, b: StellianceConnectWidgetConfig): number {
-    if (a.clickCount < b.clickCount) return 1;
-    if (a.clickCount > b.clickCount) return -1;
-    return 0;
-  }
-
-  private storeApplicationClicks(widgetApp: StellianceConnectWidgetConfig): void {
+  private storeApplicationClicks(widgetApp: StellianceConnectWidgetApplicationConfig): void {
     const newValue = widgetApp.clickCount + 1;
     widgetApp.clickCount = newValue;
     localStorage.setItem(`${STELLIANCE_CONNECT_LINKS_COUNTER}_${widgetApp.id}`, newValue.toString());
