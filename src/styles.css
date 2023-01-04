@@ -4,7 +4,7 @@
 }
 
 .wrapper .icon {
-  margin: 0 20px;
+  margin: 0 1.25rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -17,32 +17,30 @@
 .wrapper .icon .icon-grid {
   position: relative;
   z-index: 2;
-  height: 60px;
-  width: 60px;
+  height: 3.75rem;
+  width: 3.75rem;
   display: block;
   background: #fff;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   text-align: center;
   transition: all 0.2s;
 }
 
 .wrapper .icon .icon-grid i {
-  font-size: 25px;
-  line-height: 60px;
+  font-size: 1.563rem;
+  line-height: 3.75rem;
 }
 
 .wrapper .icon .tooltip {
   position: absolute;
-  top: 0;
   background: #fff;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
   font-size: 20px;
-  padding: 10px 18px;
+  padding: 0.625rem 1.125rem;
   color: white;
   opacity: 0;
   pointer-events: none;
-  border-radius: 6px;
+  border-radius: 0.4rem;
   transition: opacity 0.2s;
 }
 
@@ -65,7 +63,7 @@
 
 .wrapper .icon:hover .icon-grid,
 .wrapp .icon:hover .tooltip {
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  text-shadow: 0 -0.063rem 0 rgba(0, 0, 0, 0.4);
 }
 
 .wrapper .icon:hover .icon-grid {

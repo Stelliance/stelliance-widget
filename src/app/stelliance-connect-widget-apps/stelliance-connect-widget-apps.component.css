@@ -7,7 +7,7 @@
 .stelliance-tooltip-item {
   display: flex;
   margin: auto;
-  padding: 20px;
+  padding: 1.25rem;
   flex-direction: column;
 }
 
@@ -17,7 +17,8 @@
 }
 
 .stelliance-tooltip-item .name-container span {
-  color: grey;
+  color: black;
+  font-size: 0.9rem;
 }
 
 .stelliance-tooltip-item .image-container img {
@@ -27,12 +28,17 @@
   max-width: 100%;
 }
 
+.stelliance-tooltip-item .image-container:hover {
+  opacity: 0.8;
+  border: 1px solid lightgray;
+}
+
 @media screen and (max-width: 480px) {
   .stelliance-tooltip-items {
     grid-template-columns: auto auto;
   }
 
   .stelliance-tooltip-item {
-    padding: 10px;
+    padding: 0.625rem;
   }
 }

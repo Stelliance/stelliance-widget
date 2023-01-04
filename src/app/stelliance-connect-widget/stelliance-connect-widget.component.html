@@ -1,5 +1,10 @@
 <div class="wrapper">
-  <div class="icon grid" (click)="showWidgets = !showWidgets" [ngClass]="{ openned: showWidgets }">
+  <div
+    class="icon grid"
+    id="stellianceWidgetGridIcon"
+    (click)="showWidgets = !showWidgets"
+    [ngClass]="{ openned: showWidgets }"
+  >
     <div class="tooltip stelliance-tooltip" [ngClass]="{ openned: showWidgets }">
       <app-stelliance-connect-widget-apps
         [apps]="widgetAppsFavorites"
