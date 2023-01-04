@@ -3,13 +3,7 @@ import { of } from 'rxjs';
 import { StellianceConnectWidgetConfigService } from '../services/stelliance-connect-widget-config.service';
 import { StellianceConnectWidgetAppsComponent } from '../stelliance-connect-widget-apps/stelliance-connect-widget-apps.component';
 import { StellianceConnectWidgetFixtures } from '../tests/fixtures/stelliance-connect-widget-config.fixtures';
-import { StellianceConnectWidgetConfig } from './stelliance-connect-widget-config.model';
 import { StellianceConnectWidgetComponent } from './stelliance-connect-widget.component';
-
-class MockStellianceConnectWidgetConfigService {
-  isLoggedIn = true;
-  user = { name: 'Test User' };
-}
 
 describe('StellianceConnectWidgetComponent', () => {
   let component: StellianceConnectWidgetComponent;
@@ -18,9 +12,6 @@ describe('StellianceConnectWidgetComponent', () => {
   let storeApplicationClicksSpy: jasmine.Spy<any>;
   let getItemSpy: jasmine.Spy<any>;
   let setItemSpy: jasmine.Spy<any>;
-
-  const configService = jasmine.createSpyObj('StellianceConnectWidgetConfigService', ['getWidgetsConfig']);
-  let getWidgetsConfigSpy: jasmine.Spy<any>;
 
   const STELLIANCE_CONNECT_LINKS_COUNTER = 'counter_stelliance_connect';
   const aConfig = StellianceConnectWidgetFixtures.aStellianceConnectWidgetConfig();
@@ -32,7 +23,9 @@ describe('StellianceConnectWidgetComponent', () => {
         StellianceConnectWidgetConfigService,
         {
           provide: StellianceConnectWidgetConfigService,
-          useValue: configService,
+          useValue: {
+            getWidgetsConfig: () => of(aConfig),
+          },
         },
       ],
     }).compileComponents();
@@ -41,19 +34,17 @@ describe('StellianceConnectWidgetComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StellianceConnectWidgetComponent);
     component = fixture.componentInstance;
-
-    getWidgetsConfigSpy = configService.getWidgetsConfig.and.returnValue(of(aConfig));
     fixture.detectChanges();
 
     getItemSpy = spyOn(localStorage, 'getItem');
     setItemSpy = spyOn(localStorage, 'setItem');
 
-    component.widgetApps = aConfig;
+    component.widgetsConfig = aConfig;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    expect(component.widgetApps).toBeDefined();
+    expect(component.widgetsConfig).toBeDefined();
   });
 
   it('ngOnInit method', () => {
@@ -76,69 +67,55 @@ describe('StellianceConnectWidgetComponent', () => {
   describe('navigateTo method', () => {
     beforeEach(() => {
       storeApplicationClicksSpy = spyOn(component as any, 'storeApplicationClicks');
+      spyOn(window, 'open');
     });
 
     it('should call storeApplicationClicks method with param', () => {
-      component.navigateTo(component.widgetApps[0]);
-      expect(storeApplicationClicksSpy).toHaveBeenCalledWith(component.widgetApps[0]);
+      return component.navigateTo(component.widgetsConfig.applications[0]).then(() => {
+        expect(storeApplicationClicksSpy).toHaveBeenCalledWith(component.widgetsConfig.applications[0]);
+        expect(window.open).toHaveBeenCalled();
+      });
     });
-  });
 
-  describe('sortByMostClickedApps method', () => {
-    it('when a.clickCount > b.clickCount should return -1', () => {
-      expect(
-        (component as any).sortByMostClickedApps(
-          { clickCount: 5 } as StellianceConnectWidgetConfig,
-          { clickCount: 3 } as StellianceConnectWidgetConfig
-        )
-      ).toBe(-1);
-    });
-    it('when a.clickCount < b.clickCount should return 1', () => {
-      expect(
-        (component as any).sortByMostClickedApps(
-          { clickCount: 1 } as StellianceConnectWidgetConfig,
-          { clickCount: 3 } as StellianceConnectWidgetConfig
-        )
-      ).toBe(1);
-    });
-    it('when a.clickCount = b.clickCount should return 1', () => {
-      expect(
-        (component as any).sortByMostClickedApps(
-          { clickCount: 1 } as StellianceConnectWidgetConfig,
-          { clickCount: 1 } as StellianceConnectWidgetConfig
-        )
-      ).toBe(0);
+    it('should fail if no redirect uri found', () => {
+      (component as any).environment = 'test';
+      return component
+        .navigateTo(component.widgetsConfig.applications[0])
+        .then(() => {
+          fail();
+        })
+        .catch((error) => expect(error).toBeDefined());
     });
   });
 
   describe('storeApplicationClicks method', () => {
     beforeEach(() => {
       component.ngOnInit();
-      component.widgetApps = aConfig;
+      component.widgetsConfig = aConfig;
     });
 
     it('should set item.clickCount value with +1 each calls', () => {
-      const initialCount = component.widgetApps[0].clickCount || 0;
+      const initialCount = component.widgetsConfig.applications[0].clickCount || 0;
 
-      (component as any).storeApplicationClicks(component.widgetApps[0]);
-      expect(component.widgetApps[0].clickCount).toBe(initialCount + 1);
+      (component as any).storeApplicationClicks(component.widgetsConfig.applications[0]);
+      expect(component.widgetsConfig.applications[0].clickCount).toBe(initialCount + 1);
 
-      (component as any).storeApplicationClicks(component.widgetApps[0]);
-      (component as any).storeApplicationClicks(component.widgetApps[0]);
-      expect(component.widgetApps[0].clickCount).toBe(initialCount + 3);
+      (component as any).storeApplicationClicks(component.widgetsConfig.applications[0]);
+      (component as any).storeApplicationClicks(component.widgetsConfig.applications[0]);
+      expect(component.widgetsConfig.applications[0].clickCount).toBe(initialCount + 3);
     });
 
     it('should call localStorage with new value', () => {
-      const initialCount = component.widgetApps[0].clickCount || 0;
+      const initialCount = component.widgetsConfig.applications[0].clickCount || 0;
 
-      (component as any).storeApplicationClicks(component.widgetApps[0]);
+      (component as any).storeApplicationClicks(component.widgetsConfig.applications[0]);
       expect(setItemSpy).toHaveBeenCalledOnceWith(
-        `${STELLIANCE_CONNECT_LINKS_COUNTER}_${component.widgetApps[0].id}`,
+        `${STELLIANCE_CONNECT_LINKS_COUNTER}_${component.widgetsConfig.applications[0].id}`,
         (initialCount + 1).toString()
       );
 
-      (component as any).storeApplicationClicks(component.widgetApps[0]);
-      (component as any).storeApplicationClicks(component.widgetApps[0]);
+      (component as any).storeApplicationClicks(component.widgetsConfig.applications[0]);
+      (component as any).storeApplicationClicks(component.widgetsConfig.applications[0]);
       expect(setItemSpy).toHaveBeenCalledTimes(3);
     });
   });
