@@ -1,6 +1,6 @@
 {
   "stelliance":{
-    "basUrl": "https://connect.stelliance.eu/auth/realms/stelliance-connect-dev/protocol/openid-connect/auth?client_id=widget&response_mode=fragment&response_type=code&scope=openid&code_challenge_method=S256"
+    "baseUrl": "https://connect.stelliance.eu/auth/realms/stelliance-connect-dev/protocol/openid-connect/auth?client_id=widget&response_mode=fragment&response_type=code&scope=openid&code_challenge_method=S256"
   },
   "applications": [
     {
