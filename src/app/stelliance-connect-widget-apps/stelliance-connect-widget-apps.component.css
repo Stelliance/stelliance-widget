@@ -28,9 +28,12 @@
   max-width: 100%;
 }
 
-.stelliance-tooltip-item .image-container:hover {
-  opacity: 0.8;
-  border: 1px solid lightgray;
+.stelliance-tooltip-item:hover .image-container {
+  opacity: 0.6;
+}
+
+.stelliance-tooltip-item:hover .name-container span {
+  color: gray;
 }
 
 @media screen and (max-width: 480px) {
