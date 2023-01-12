@@ -5,7 +5,7 @@
   "applications": [
     {
       "id": "faircost",
-      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/faircost.png",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/faircost-logo.png",
       "name": "Faircost",
       "idpName": "",
       "urls": [
@@ -17,7 +17,7 @@
     },
     {
       "id": "viaco",
-      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/viaco.png",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/viaco-logo.png",
       "name": "Viaco",
       "idpName": "",
       "urls": [
@@ -29,7 +29,7 @@
     },
     {
       "id": "subclic",
-      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/subclic.png",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/subclic-logo.png",
       "name": "Subclic",
       "idpName": "",
       "urls": [
