@@ -4,6 +4,22 @@
   },
   "applications": [
     {
+      "id": "lemur",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/redfroggy-logo.png",
+      "name": "Lemur (test)",
+      "idpName": "idp-plateforme-de-test-2",
+      "urls": [
+        {
+          "env": "dev",
+          "redirectUri": "  https://iam-subclic.herokuapp.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code&client_id=legacy-subclic&redirect_uri=https%3A%2F%2Fapp.subclic.com%2F&kc_idp_hint=stelliance-connect"
+        },
+        {
+          "env": "prod",
+          "redirectUri": "  https://iam-subclic.herokuapp.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code&client_id=legacy-subclic&redirect_uri=https%3A%2F%2Fapp.subclic.com%2F&kc_idp_hint=stelliance-connect"
+        }
+      ]
+    },
+    {
       "id": "faircost",
       "logo": "https://stelliance.github.io/stelliance-widget/assets/images/faircost-logo.png",
       "name": "Faircost",
@@ -15,7 +31,7 @@
         },
         {
           "env": "prod",
-          "redirectUri": "https://identity.dev.subclic.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code%26client_id=legacy-subclic%26redirect_uri=https%3A%2F%2Fdev.subclic.com%2F%26kc_idp_hint=stelliance-connect"
+          "redirectUri": "https://auth.app.thefaircost.com/auth/realms/faircost/protocol/openid-connect/auth?response_type=code&client_id=web_app&scope=openid%20faircost%20microprofile-jwt%20web-origins%20roles%20phone%20address%20email%20profile%20offline_access&redirect_uri=https://app.thefaircost.com/login/oauth2/code/oidc&kc_idp_hint=stelliance-connect"
         }
       ]
     },
@@ -31,7 +47,7 @@
         },
         {
           "env": "prod",
-          "redirectUri": "https://identity.dev.subclic.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code%26client_id=legacy-subclic%26redirect_uri=https%3A%2F%2Fdev.subclic.com%2F%26kc_idp_hint=stelliance-connect"
+          "redirectUri": "https://auth.app.thefaircost.com/auth/realms/faircost/protocol/openid-connect/auth?response_type=code&client_id=web_app&scope=openid%20faircost%20microprofile-jwt%20web-origins%20roles%20phone%20address%20email%20profile%20offline_access&redirect_uri=https://app.thefaircost.com/login/oauth2/code/oidc&kc_idp_hint=stelliance-connect"
         }
       ]
     },
@@ -47,7 +63,7 @@
         },
         {
           "env": "prod",
-          "redirectUri": "https://identity.dev.subclic.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code%26client_id=legacy-subclic%26redirect_uri=https%3A%2F%2Fdev.subclic.com%2F%26kc_idp_hint=stelliance-connect"
+          "redirectUri": "https://iam-subclic.herokuapp.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code&client_id=legacy-subclic&redirect_uri=https%3A%2F%2Fapp.subclic.com%2F&kc_idp_hint=stelliance-connect"
         }
       ]
     }
