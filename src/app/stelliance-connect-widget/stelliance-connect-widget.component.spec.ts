@@ -25,6 +25,7 @@ describe('StellianceConnectWidgetComponent', () => {
           provide: StellianceConnectWidgetConfigService,
           useValue: {
             getWidgetsConfig: () => of(aConfig),
+            encodeRedirectUrl: () => 'https://localhost',
           },
         },
       ],
