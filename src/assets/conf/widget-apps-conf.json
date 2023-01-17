@@ -11,11 +11,11 @@
       "urls": [
         {
           "env": "dev",
-          "redirectUri": "https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/protocol/openid-connect/auth?client_id=account-console&redirect_uri=https%3A%2F%2Flemur-7.cloud-iam.com%2Fauth%2Frealms%2Fplateforme-de-test-2%2Faccount%2F%23%2F&response_mode=fragment&response_type=code&scope=openid&code_challenge=AL0a6Zru52f0_NnRsgzAW1QVb_WEmkigipuiud4InvY&code_challenge_method=S256&kc_idp_hint=stelliance-connect-dev"
+          "redirectUri": "https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/protocol/openid-connect/auth?client_id=account-console&redirect_uri=https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/account/#/&response_mode=fragment&response_type=code&scope=openid&code_challenge=AL0a6Zru52f0_NnRsgzAW1QVb_WEmkigipuiud4InvY&code_challenge_method=S256&kc_idp_hint=stelliance-connect-dev"
         },
         {
           "env": "prod",
-          "redirectUri": "https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/protocol/openid-connect/auth?client_id=account-console&redirect_uri=https%3A%2F%2Flemur-7.cloud-iam.com%2Fauth%2Frealms%2Fplateforme-de-test-2%2Faccount%2F%23%2F&response_mode=fragment&response_type=code&scope=openid&code_challenge=AL0a6Zru52f0_NnRsgzAW1QVb_WEmkigipuiud4InvY&code_challenge_method=S256&kc_idp_hint=stelliance-connect-dev"
+          "redirectUri": "https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/protocol/openid-connect/auth?client_id=account-console&redirect_uri=https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/account/#/&response_mode=fragment&response_type=code&scope=openid&code_challenge=AL0a6Zru52f0_NnRsgzAW1QVb_WEmkigipuiud4InvY&code_challenge_method=S256&kc_idp_hint=stelliance-connect-dev"
         }
       ]
     },
@@ -27,11 +27,11 @@
       "urls": [
         {
           "env": "dev",
-          "redirectUri": "https://auth.dev.thefaircost.com/auth/realms/faircost/protocol/openid-connect/auth?response_type=code&client_id=web_app&scope=openid%20address%20email%20microprofile-jwt%20offline_access%20phone%20profile%20roles%20web-origins&redirect_uri=https://dev.thefaircost.com/login/oauth2/code/oidc&kc_idp_hint=stelliance-connect-dev"
+          "redirectUri": "https://auth.dev.thefaircost.com/auth/realms/faircost/protocol/openid-connect/auth?response_type=code&client_id=web_app&scope=openid address email microprofile-jwt offline_access phone profile roles web-origins&redirect_uri=https://dev.thefaircost.com/login/oauth2/code/oidc&kc_idp_hint=stelliance-connect-dev"
         },
         {
           "env": "prod",
-          "redirectUri": "https://auth.app.thefaircost.com/auth/realms/faircost/protocol/openid-connect/auth?response_type=code&client_id=web_app&scope=openid%20faircost%20microprofile-jwt%20web-origins%20roles%20phone%20address%20email%20profile%20offline_access&redirect_uri=https://app.thefaircost.com/login/oauth2/code/oidc&kc_idp_hint=stelliance-connect"
+          "redirectUri": "https://auth.app.thefaircost.com/auth/realms/faircost/protocol/openid-connect/auth?response_type=code&client_id=web_app&scope=openid faircost microprofile-jwt web-origins roles phone address email profile offline_access&redirect_uri=https://app.thefaircost.com/login/oauth2/code/oidc&kc_idp_hint=stelliance-connect"
         }
       ]
     },
@@ -43,11 +43,11 @@
       "urls": [
         {
           "env": "dev",
-          "redirectUri": "https://auth.dev.viaco.fr/auth/realms/dev/protocol/openid-connect/auth?client_id=react-app&redirect_uri=https%3A%2F%2Fdev.viaco.fr%2F&response_mode=fragment&response_type=code&scope=openid&kc_idp_hint=stelliance-connect"
+          "redirectUri": "https://auth.dev.viaco.fr/auth/realms/dev/protocol/openid-connect/auth?client_id=react-app&redirect_uri=https://dev.viaco.fr/&response_mode=fragment&response_type=code&scope=openid&kc_idp_hint=stelliance-connect"
         },
         {
           "env": "prod",
-          "redirectUri": "https://auth.viaco.fr/auth/realms/prod/protocol/openid-connect/auth?client_id=react-app&redirect_uri=https%3A%2F%2Fapp.viaco.fr%2F&response_mode=fragment&response_type=code&scope=openid&kc_idp_hint=stelliance-connect"
+          "redirectUri": "https://auth.viaco.fr/auth/realms/prod/protocol/openid-connect/auth?client_id=react-app&redirect_uri=https://app.viaco.fr/&response_mode=fragment&response_type=code&scope=openid&kc_idp_hint=stelliance-connect"
         }
       ]
     },
@@ -59,11 +59,11 @@
       "urls": [
         {
           "env": "dev",
-          "redirectUri": "https://identity.dev.subclic.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code%26client_id=legacy-subclic%26redirect_uri=https%3A%2F%2Fdev.subclic.com%2F%26kc_idp_hint=stelliance-connect"
+          "redirectUri": "https://identity.dev.subclic.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code&client_id=legacy-subclic&redirect_uri=https://dev.subclic.com/&kc_idp_hint=stelliance-connect"
         },
         {
           "env": "prod",
-          "redirectUri": "https://iam-subclic.herokuapp.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code&client_id=legacy-subclic&redirect_uri=https%3A%2F%2Fapp.subclic.com%2F&kc_idp_hint=stelliance-connect"
+          "redirectUri": "https://iam-subclic.herokuapp.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code&client_id=legacy-subclic&redirect_uri=https://app.subclic.com/&kc_idp_hint=stelliance-connect"
         }
       ]
     }
