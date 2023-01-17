@@ -27,4 +27,13 @@ describe('StellianceConnectWidgetConfigService tests', () => {
 
     expect(httpClientSpy.get.calls.count()).toBe(1);
   });
+
+  it('should encode redirect uri', () => {
+    const redirectUrl = widgetConfigService.encodeRedirectUrl(
+      'https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/protocol/openid-connect/auth?client_id=account-console&redirect_uri=https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/account/#/&response_mode=fragment&response_type=code&scope=openid&code_challenge=AL0a6Zru52f0_NnRsgzAW1QVb_WEmkigipuiud4InvY&code_challenge_method=S256&kc_idp_hint=stelliance-connect-dev'
+    );
+    expect(redirectUrl).toBe(
+      'https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/protocol/openid-connect/auth?client_id=account-console&redirect_uri=https%3A%2F%2Flemur-7.cloud-iam.com%2Fauth%2Frealms%2Fplateforme-de-test-2%2Faccount%2F%23%2F%26response_mode%3Dfragment%26response_type%3Dcode%26scope%3Dopenid%26code_challenge%3DAL0a6Zru52f0_NnRsgzAW1QVb_WEmkigipuiud4InvY%26code_challenge_method%3DS256%26kc_idp_hint%3Dstelliance-connect-dev'
+    );
+  });
 });
