@@ -55,7 +55,7 @@ export class StellianceConnectWidgetComponent implements OnInit {
     const redirectUrl = widgetApp.urls.find((url) => url.env === this.environment);
     if (redirectUrl) {
       return CodeChallengeUtil.generate().then((code) => {
-        let appRedirectUrl = `${this.widgetsConfig.stelliance.baseUrl}&kc_idp_hint${widgetApp.idpName}&redirect_uri=${redirectUrl.redirectUri}&code_challenge=${code}`;
+        let appRedirectUrl = `${this.widgetsConfig.stelliance.baseUrl}&kc_idp_hint=${widgetApp.idpName}&redirect_uri=${redirectUrl.redirectUri}&code_challenge=${code}`;
         console.log(appRedirectUrl);
         return window.open(appRedirectUrl, '_blank');
       });
