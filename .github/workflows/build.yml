@@ -44,11 +44,11 @@ jobs:
       -   name: Build
           if: github.ref == 'refs/heads/main'
           run: |
-            npm run build
-      -   name: Cache dist folder
+            ./build.sh
+      -   name: Cache preview folder
           uses: actions/cache@v3
           with:
-            path: dist
+            path: preview
             key: stelliance-widget-dist-${{ github.run_id }}
 
   release:

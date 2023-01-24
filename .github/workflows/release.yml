@@ -29,10 +29,10 @@ jobs:
       - name: Install Dependencies
         run: |
           npm ci
-      - name: Cache dist folder
+      - name: Cache preview folder
         uses: actions/cache@v3
         with:
-          path: dist
+          path: preview
           key: stelliance-widget-dist-${{ github.run_id }}
 
       - name: release
@@ -41,5 +41,5 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-          cp package.json dist/angular-element-app
+          cp package.json preview/
           npm run release
