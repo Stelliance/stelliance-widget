@@ -32,6 +32,8 @@ If you need to see the render of the web component locally you can run `npm run 
 
 ## How to use it in any frontend
 
+[how to use it](https://stackblitz.com/edit/js-qmj8r3?file=index.html,index.js)
+
 Run `npm install stc-widget` to install the library and declare component in template:
 
 - Import the widget in your html file

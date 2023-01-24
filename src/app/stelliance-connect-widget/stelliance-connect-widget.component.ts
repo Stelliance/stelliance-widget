@@ -61,7 +61,6 @@ export class StellianceConnectWidgetComponent implements OnInit {
         let appRedirectUrl = `${this.widgetsConfig.stelliance.baseUrl}&kc_idp_hint=${
           widgetApp.idpName
         }&redirect_uri=${encodeURIComponent(redirectUrl.redirectUri)}&code_challenge=${code}`;
-        console.log(appRedirectUrl);
         return window.open(appRedirectUrl, '_blank');
       });
     }
