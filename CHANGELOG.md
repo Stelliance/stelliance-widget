@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Stelliance/stelliance-widget/compare/v1.0.0...v1.0.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* use grid css in default output widget css file ([7eaee8b](https://github.com/Stelliance/stelliance-widget/commit/7eaee8bda5dca2b0ab04527cef5ba5e3c6c11634))
+
 # 1.0.0 (2023-01-24)
 
 
