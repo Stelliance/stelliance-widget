@@ -5,10 +5,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "concat": "concat -o ./dist/angular-element-app/output.js ./dist/angular-element-app/runtime.js ./dist/angular-element-app/polyfills.js ./dist/angular-element-app/main.js",
+    "concat": "concat -o ./dist/stc-widget/output.js ./dist/stc-widget/runtime.js ./dist/stc-widget/polyfills.js ./dist/stc-widget/main.js",
     "build": "ng build --configuration production --output-hashing=none && npm run concat",
     "watch": "ng build --watch --configuration development",
-    "release": "cp README.md dist/angular-element-app && npm run semantic-release",
+    "release": "cp README.md preview && npm run semantic-release",
     "semantic-release": "semantic-release",
     "test": "ng test --browsers=ChromeHeadless --code-coverage",
     "preview:serve": "./build.sh && npx live-server preview",
