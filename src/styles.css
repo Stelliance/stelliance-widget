@@ -23,7 +23,7 @@
   height: 3.75rem;
   width: 3.75rem;
   display: block;
-  background: #fff;
+  background: transparent;
   border-radius: 50%;
   text-align: center;
   transition: all 0.2s;
