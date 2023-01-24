@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Stelliance/stelliance-widget/compare/v1.0.1...v1.0.2) (2023-01-24)
+
+
+### Bug Fixes
+
+* css set btn as transparent + specific css classes ([481963a](https://github.com/Stelliance/stelliance-widget/commit/481963aef85baee11092b1d63a91ec3e1dd98358))
+
 ## [1.0.1](https://github.com/Stelliance/stelliance-widget/compare/v1.0.0...v1.0.1) (2023-01-24)
 
 
