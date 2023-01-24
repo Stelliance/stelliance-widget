@@ -1,0 +1,68 @@
+{
+  "stelliance":{
+    "baseUrl": "https://connect.stelliance.eu/auth/realms/stelliance-connect-dev/protocol/openid-connect/auth?client_id=widget&response_mode=fragment&response_type=code&scope=openid&code_challenge_method=S256"
+  },
+  "applications": [
+    {
+      "id": "lemur",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/redfroggy-logo.png",
+      "name": "Lemur (test)",
+      "idpName": "idp-plateforme-de-test-2",
+      "urls": [
+        {
+          "env": "dev",
+          "redirectUri": "https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/protocol/openid-connect/auth?client_id=account-console&redirect_uri=https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/account/#/&response_mode=fragment&response_type=code&scope=openid&code_challenge=AL0a6Zru52f0_NnRsgzAW1QVb_WEmkigipuiud4InvY&code_challenge_method=S256&kc_idp_hint=stelliance-connect-dev"
+        }
+      ]
+    },
+    {
+      "id": "faircost",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/faircost-logo.png",
+      "name": "Faircost",
+      "idpName": "idp-faircost",
+      "urls": [
+        {
+          "env": "dev",
+          "redirectUri": "https://auth.dev.thefaircost.com/auth/realms/faircost/protocol/openid-connect/auth?response_type=code&client_id=web_app&scope=openid address email microprofile-jwt offline_access phone profile roles web-origins&redirect_uri=https://dev.thefaircost.com/login/oauth2/code/oidc&kc_idp_hint=stelliance-connect-dev"
+        },
+        {
+          "env": "prod",
+          "redirectUri": "https://auth.app.thefaircost.com/auth/realms/faircost/protocol/openid-connect/auth?response_type=code&client_id=web_app&scope=openid faircost microprofile-jwt web-origins roles phone address email profile offline_access&redirect_uri=https://app.thefaircost.com/login/oauth2/code/oidc&kc_idp_hint=stelliance-connect"
+        }
+      ]
+    },
+    {
+      "id": "viaco",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/viaco-logo.png",
+      "name": "Viaco",
+      "idpName": "idp-viaco",
+      "urls": [
+        {
+          "env": "dev",
+          "redirectUri": "https://auth.dev.viaco.fr/auth/realms/dev/protocol/openid-connect/auth?client_id=react-app&redirect_uri=https://dev.viaco.fr/&response_mode=fragment&response_type=code&scope=openid&kc_idp_hint=stelliance-connect"
+        },
+        {
+          "env": "prod",
+          "redirectUri": "https://auth.viaco.fr/auth/realms/prod/protocol/openid-connect/auth?client_id=react-app&redirect_uri=https://app.viaco.fr/&response_mode=fragment&response_type=code&scope=openid&kc_idp_hint=stelliance-connect"
+        }
+      ]
+    },
+    {
+      "id": "subclic",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/subclic-logo.png",
+      "name": "Subclic",
+      "idpName": "idp-subclic",
+      "urls": [
+        {
+          "env": "dev",
+          "redirectUri": "https://identity.dev.subclic.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code&client_id=legacy-subclic&redirect_uri=https://dev.subclic.com/&kc_idp_hint=stelliance-connect"
+        },
+        {
+          "env": "prod",
+          "redirectUri": "https://iam-subclic.herokuapp.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code&client_id=legacy-subclic&redirect_uri=https://app.subclic.com/&kc_idp_hint=stelliance-connect"
+        }
+      ]
+    }
+  ]
+
+}
