@@ -1,5 +1,6 @@
 {
-  "name": "angular-element-app",
+  "name": "stc-widget",
+  "description": "Allow your users to navigate to other stelliance's companies web applications using SSO with no re-authentication",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

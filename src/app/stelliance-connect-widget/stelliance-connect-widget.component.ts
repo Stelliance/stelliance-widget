@@ -42,6 +42,9 @@ export class StellianceConnectWidgetComponent implements OnInit {
   ngOnInit(): void {
     this.configService.getWidgetsConfig().subscribe((widgetsConfig: StellianceConnectWidgetConfig) => {
       this.widgetsConfig = widgetsConfig;
+      this.widgetsConfig.applications = this.widgetsConfig.applications.filter((app) =>
+        app.urls.some((url) => url.env === this.environment)
+      );
       this.organizeWidgets();
     });
   }
