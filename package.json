@@ -11,8 +11,7 @@
     "release": "cp README.md preview && npm run semantic-release",
     "semantic-release": "semantic-release",
     "test": "ng test --browsers=ChromeHeadless --code-coverage",
-    "preview:serve": "./build.sh && npx live-server preview",
-    "prepare": "husky install"
+    "preview:serve": "./build.sh && npx live-server preview"
   },
   "private": true,
   "dependencies": {
