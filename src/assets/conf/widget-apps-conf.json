@@ -12,10 +12,6 @@
         {
           "env": "dev",
           "redirectUri": "https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/protocol/openid-connect/auth?client_id=account-console&redirect_uri=https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/account/#/&response_mode=fragment&response_type=code&scope=openid&code_challenge=AL0a6Zru52f0_NnRsgzAW1QVb_WEmkigipuiud4InvY&code_challenge_method=S256&kc_idp_hint=stelliance-connect-dev"
-        },
-        {
-          "env": "prod",
-          "redirectUri": "https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/protocol/openid-connect/auth?client_id=account-console&redirect_uri=https://lemur-7.cloud-iam.com/auth/realms/plateforme-de-test-2/account/#/&response_mode=fragment&response_type=code&scope=openid&code_challenge=AL0a6Zru52f0_NnRsgzAW1QVb_WEmkigipuiud4InvY&code_challenge_method=S256&kc_idp_hint=stelliance-connect-dev"
         }
       ]
     },

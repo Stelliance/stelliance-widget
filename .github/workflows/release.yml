@@ -42,4 +42,4 @@ jobs:
         run: |
           npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
           cp package.json dist/angular-element-app
-#         npm run release
+          npm run release

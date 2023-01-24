@@ -41,8 +41,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-preview/assets/
 preview/styles.css
-preview/angularapp.js
+preview/stc-widget.js
 
 

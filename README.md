@@ -35,7 +35,7 @@ If you need to see the render of the web component locally you can run `npm run 
 Run `npm install <LIB-NAME>` to install the library and declare component in template:
 
 ```
-<stc-app-widget></stc-app-widget>
+<stc-app-widget environment="prod" app-logo-width="auto" app-logo-height="60"></stc-app-widget>
 ```
 
 Inputs:
@@ -44,7 +44,7 @@ Inputs:
 
 - `appLogoHeight` : define max height in px allowed for each logo image in template. Default value = `'60'`
 
-- `environment`: `'dev'` | `'prod'` (default value) to target a specific sso url for each web application.
+- `environment`: `'dev'` | `'prod'` (default value: `prod`) to target a specific sso url for each web application.
 
 ## Demo
 
