@@ -59,6 +59,8 @@ Inputs:
 
 - `environment`: `'dev'` | `'prod'` (default value: `prod`) to target a specific sso url for each web application.
 
+- `position`: `'left'` | `'right'` (default value: `left`) to set the horizontal position of the dropdown menu.
+
 ## Demo
 
 [Stelliance Widget](https://stelliance.github.io/stelliance-widget/)

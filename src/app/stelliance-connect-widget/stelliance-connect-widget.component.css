@@ -4,7 +4,6 @@
 }
 
 .stelliance-tooltip {
-  left: 0.25rem;
   top: 4rem !important;
   z-index: 1000;
   display: flex;
@@ -12,6 +11,14 @@
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 50vh;
+}
+
+.stelliance-tooltip.left {
+  left: 0.25rem;
+}
+
+.stelliance-tooltip.right {
+  right: 0.25rem;
 }
 
 .stelliance-tooltip-separator {

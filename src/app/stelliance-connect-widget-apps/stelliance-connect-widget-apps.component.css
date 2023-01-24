@@ -9,11 +9,12 @@
   margin: auto;
   padding: 1.25rem;
   flex-direction: column;
+  align-items: center;
 }
 
 .stelliance-tooltip-item .name-container {
   display: flex;
-  margin: auto;
+  text-align: center;
 }
 
 .stelliance-tooltip-item .name-container span {
