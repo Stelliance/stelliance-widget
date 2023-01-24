@@ -36,7 +36,7 @@ module.exports = function (config) {
           ]
         }
       },
-      dir: require('path').join(__dirname, './coverage/angular-element-app'),
+      dir: require('path').join(__dirname, './coverage/stc-widget'),
       subdir: '.',
       reporters: [
         { type: 'html' },
