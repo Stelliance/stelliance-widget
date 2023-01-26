@@ -24,6 +24,8 @@ export class StellianceConnectWidgetComponent implements OnInit {
 
   @Input() environment: 'dev' | 'prod' = 'prod';
 
+  @Input() position: 'left' | 'right' = 'left';
+
   widgetsConfig: StellianceConnectWidgetConfig;
   widgetAppsFavorites: StellianceConnectWidgetApplicationConfig[] = [];
   widgetAppsNotFavorites: StellianceConnectWidgetApplicationConfig[] = [];
