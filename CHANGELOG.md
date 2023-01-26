@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/Stelliance/stelliance-widget/compare/v1.0.2...v1.0.3) (2023-01-26)
+
+
+### Bug Fixes
+
+* input right position and css align text name ([3e29f88](https://github.com/Stelliance/stelliance-widget/commit/3e29f882561d6da7e033e5df59952328a407dbc9))
+
 ## [1.0.2](https://github.com/Stelliance/stelliance-widget/compare/v1.0.1...v1.0.2) (2023-01-24)
 
 
