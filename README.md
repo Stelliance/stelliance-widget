@@ -1,4 +1,4 @@
-# Stelliance widgdet
+# Stelliance widget
 
 ![Last build](https://github.com/Stelliance/stelliance-widget/actions/workflows/build.yml/badge.svg)
 
