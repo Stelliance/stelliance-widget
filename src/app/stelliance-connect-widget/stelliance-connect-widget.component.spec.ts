@@ -120,4 +120,27 @@ describe('StellianceConnectWidgetComponent', () => {
       expect(setItemSpy).toHaveBeenCalledTimes(3);
     });
   });
+
+  describe('onClickDocument method', () => {
+    it('should close component when user click anywhere on the page', () => {
+      component.showWidgets = true;
+      let event = {
+        stopPropagation: () => true,
+        path: [{ id: 'test' }],
+      };
+      (component as any).onClickDocument(event as any);
+      expect(component.showWidgets).toBeFalsy();
+
+      component.showWidgets = false;
+      (component as any).onClickDocument(event as any);
+      expect(component.showWidgets).toBeFalsy();
+
+      component.showWidgets = true;
+      event = {
+        stopPropagation: () => true,
+        path: [{ id: 'stellianceWidgetGridIcon' }],
+      };
+      expect(component.showWidgets).toBeTruthy();
+    });
+  });
 });

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { StellianceConnectWidgetConfigService } from '../services/stelliance-connect-widget-config.service';
 import {
   StellianceConnectWidgetApplicationConfig,
@@ -18,7 +18,7 @@ const STELLIANCE_CONNECT_LINKS_COUNTER = 'counter_stelliance_connect';
   templateUrl: './stelliance-connect-widget.component.html',
   styleUrls: ['./stelliance-connect-widget.component.css'],
 })
-export class StellianceConnectWidgetComponent implements OnInit {
+export class StellianceConnectWidgetComponent implements OnInit, OnDestroy {
   @Input() appLogoWidth: string = DEFAULT_APP_LOGO_MAX_WIDTH;
   @Input() appLogoHeight: string = DEFAULT_APP_LOGO_MAX_HEIGHT;
 
@@ -42,6 +42,8 @@ export class StellianceConnectWidgetComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    document.addEventListener('click', this.onClickDocument.bind(this));
+
     this.configService.getWidgetsConfig().subscribe((widgetsConfig: StellianceConnectWidgetConfig) => {
       this.widgetsConfig = widgetsConfig;
       this.widgetsConfig.applications = this.widgetsConfig.applications.filter((app) =>
@@ -49,6 +51,10 @@ export class StellianceConnectWidgetComponent implements OnInit {
       );
       this.organizeWidgets();
     });
+  }
+
+  ngOnDestroy() {
+    document.removeEventListener('click', this.onClickDocument.bind(this));
   }
 
   navigateTo(widgetApp: StellianceConnectWidgetApplicationConfig) {
@@ -87,5 +93,15 @@ export class StellianceConnectWidgetComponent implements OnInit {
     const newValue = widgetApp.clickCount + 1;
     widgetApp.clickCount = newValue;
     localStorage.setItem(`${STELLIANCE_CONNECT_LINKS_COUNTER}_${widgetApp.id}`, newValue.toString());
+  }
+
+  private onClickDocument(event: MouseEvent) {
+    event.stopPropagation();
+    if (
+      this.showWidgets &&
+      !(event as any).path.some((target: HTMLElement) => target.id === 'stellianceWidgetGridIcon')
+    ) {
+      this.showWidgets = false;
+    }
   }
 }
