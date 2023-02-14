@@ -5,7 +5,7 @@
     (click)="showWidgets = !showWidgets"
     [ngClass]="{ openned: showWidgets }"
   >
-    <div class="tooltip stelliance-tooltip" [ngClass]="{ openned: showWidgets }">
+    <div class="tooltip stelliance-tooltip" [className]="position" [ngClass]="{ openned: showWidgets }">
       <app-stelliance-connect-widget-apps
         [apps]="widgetAppsFavorites"
         [appLogoWidth]="appLogoWidth"
