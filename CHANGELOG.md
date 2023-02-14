@@ -1,3 +1,11 @@
+## [1.0.4](https://github.com/Stelliance/stelliance-widget/compare/v1.0.3...v1.0.4) (2023-02-14)
+
+
+### Bug Fixes
+
+* close widget when a user click inside the web page ([29a3b30](https://github.com/Stelliance/stelliance-widget/commit/29a3b308c8c00aed2a99ee097eb442c7d0faf3f8))
+* css set btn as transparent + specific css classes ([a2092f6](https://github.com/Stelliance/stelliance-widget/commit/a2092f6209c9dbc78c1b0b172b1c7c412a4634ec))
+
 ## [1.0.3](https://github.com/Stelliance/stelliance-widget/compare/v1.0.2...v1.0.3) (2023-01-26)
 
 
