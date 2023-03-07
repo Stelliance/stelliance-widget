@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/Stelliance/stelliance-widget/compare/v1.0.4...v1.0.5) (2023-03-07)
+
+
+### Bug Fixes
+
+* grid css file url ([da1cb41](https://github.com/Stelliance/stelliance-widget/commit/da1cb41579a1b4d929719b905b552a3b8e609701))
+
 ## [1.0.4](https://github.com/Stelliance/stelliance-widget/compare/v1.0.3...v1.0.4) (2023-02-14)
 
 
