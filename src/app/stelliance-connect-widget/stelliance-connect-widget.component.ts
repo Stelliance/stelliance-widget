@@ -22,7 +22,7 @@ export class StellianceConnectWidgetComponent implements OnInit, OnDestroy {
   @Input() appLogoWidth: string = DEFAULT_APP_LOGO_MAX_WIDTH;
   @Input() appLogoHeight: string = DEFAULT_APP_LOGO_MAX_HEIGHT;
 
-  @Input() environment: 'dev' | 'prod' = 'prod';
+  @Input() environment: 'dev' | 'prod' = 'dev';
 
   @Input() position: 'left' | 'right' = 'left';
 
@@ -44,11 +44,8 @@ export class StellianceConnectWidgetComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     document.addEventListener('click', this.onClickDocument.bind(this));
 
-    this.configService.getWidgetsConfig().subscribe((widgetsConfig: StellianceConnectWidgetConfig) => {
+    this.configService.getWidgetsConfig(this.environment).subscribe((widgetsConfig: StellianceConnectWidgetConfig) => {
       this.widgetsConfig = widgetsConfig;
-      this.widgetsConfig.applications = this.widgetsConfig.applications.filter((app) =>
-        app.urls.some((url) => url.env === this.environment)
-      );
       this.organizeWidgets();
     });
   }
@@ -63,16 +60,13 @@ export class StellianceConnectWidgetComponent implements OnInit, OnDestroy {
     // Active to organize widgets dynamically
     this.organizeWidgets();
 
-    const redirectUrl = widgetApp.urls.find((url) => url.env === this.environment);
-    if (redirectUrl) {
-      return CodeChallengeUtil.generate().then((code) => {
-        let appRedirectUrl = `${this.widgetsConfig.stelliance.baseUrl}&kc_idp_hint=${
-          widgetApp.idpName
-        }&redirect_uri=${encodeURIComponent(redirectUrl.redirectUri)}&code_challenge=${code}`;
-        return window.open(appRedirectUrl, '_blank');
-      });
-    }
-    return Promise.reject('No redirect url found for environment' + this.environment);
+    const redirectUrl = widgetApp.redirectUri;
+    return CodeChallengeUtil.generate().then((code) => {
+      const appRedirectUrl = `${this.widgetsConfig.stelliance.baseUrl}&kc_idp_hint=${
+        widgetApp.idpName
+      }&redirect_uri=${encodeURIComponent(redirectUrl)}&code_challenge=${code}`;
+      return window.open(appRedirectUrl, '_blank');
+    });
   }
 
   private organizeWidgets() {

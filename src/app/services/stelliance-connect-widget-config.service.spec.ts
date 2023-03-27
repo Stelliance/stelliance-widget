@@ -17,7 +17,7 @@ describe('StellianceConnectWidgetConfigService tests', () => {
   it('should return config (HttpClient called once)', (done: DoneFn) => {
     httpClientSpy.get.and.returnValue(of(aConfig));
 
-    widgetConfigService.getWidgetsConfig().subscribe({
+    widgetConfigService.getWidgetsConfig('test').subscribe({
       next: (configs) => {
         expect(configs).toEqual(aConfig);
         done();

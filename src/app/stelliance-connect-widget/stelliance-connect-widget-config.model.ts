@@ -4,7 +4,7 @@ export interface StellianceConnectWidgetApplicationConfig {
   name: string;
   idpName: string;
   clickCount: number;
-  urls: { env: string; redirectUri: string }[];
+  redirectUri: string;
 }
 
 export interface StellianceConnectWidgetConfig {

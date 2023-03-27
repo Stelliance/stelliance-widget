@@ -13,12 +13,7 @@ export class StellianceConnectWidgetFixtures {
           name: 'name1',
           clickCount: 0,
           idpName: 'idp1',
-          urls: [
-            {
-              env: 'prod',
-              redirectUri: 'http://redirect-uri/idp1',
-            },
-          ],
+          redirectUri: 'http://redirect-uri/idp1'
         },
         {
           id: 'id2',
@@ -26,12 +21,7 @@ export class StellianceConnectWidgetFixtures {
           name: 'name2',
           clickCount: 0,
           idpName: 'idp2',
-          urls: [
-            {
-              env: 'prod',
-              redirectUri: 'http://redirect-uri/idp2',
-            },
-          ],
+          redirectUri: 'http://redirect-uri/idp2',
         },
         {
           id: 'id3',
@@ -39,12 +29,7 @@ export class StellianceConnectWidgetFixtures {
           name: 'name3',
           clickCount: 0,
           idpName: 'idp3',
-          urls: [
-            {
-              env: 'prod',
-              redirectUri: 'http://redirect-uri/idp3',
-            },
-          ],
+          redirectUri: 'http://redirect-uri/idp3',
         },
         {
           id: 'id4',
@@ -52,12 +37,7 @@ export class StellianceConnectWidgetFixtures {
           name: 'name4',
           clickCount: 0,
           idpName: 'idp4',
-          urls: [
-            {
-              env: 'prod',
-              redirectUri: 'http://redirect-uri/idp4',
-            },
-          ],
+          redirectUri: 'http://redirect-uri/idp4',
         },
       ],
     };

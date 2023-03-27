@@ -1,0 +1,29 @@
+{
+  "stelliance":{
+    "baseUrl": "https://connect.stelliance.eu/auth/realms/stelliance-connect/protocol/openid-connect/auth?client_id=widget&response_mode=fragment&response_type=code&scope=openid&code_challenge_method=S256"
+  },
+  "applications": [
+    {
+      "id": "faircost",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/faircost-logo.png",
+      "name": "Faircost",
+      "idpName": "idp-faircost",
+      "redirectUri": "https://auth.app.thefaircost.com/auth/realms/faircost/protocol/openid-connect/auth?response_type=code&client_id=web_app&scope=openid faircost microprofile-jwt web-origins roles phone address email profile offline_access&redirect_uri=https://app.thefaircost.com/login/oauth2/code/oidc&kc_idp_hint=stelliance-connect"
+    },
+    {
+      "id": "viaco",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/viaco-logo.png",
+      "name": "Viaco",
+      "idpName": "idp-viaco",
+      "redirectUri": "https://auth.viaco.fr/auth/realms/prod/protocol/openid-connect/auth?client_id=react-app&redirect_uri=https://app.viaco.fr/&response_mode=fragment&response_type=code&scope=openid&kc_idp_hint=stelliance-connect"
+    },
+    {
+      "id": "subclic",
+      "logo": "https://stelliance.github.io/stelliance-widget/assets/images/subclic-logo.png",
+      "name": "Subclic",
+      "idpName": "idp-subclic",
+      "redirectUri": "https://iam.subclic.com/auth/realms/subclic/protocol/openid-connect/auth?response_type=code&client_id=legacy-subclic&redirect_uri=https://app.subclic.com/&kc_idp_hint=stelliance-connect"
+    }
+  ]
+
+}

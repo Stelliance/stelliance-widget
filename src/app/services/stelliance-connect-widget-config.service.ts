@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { StellianceConnectWidgetConfig } from '../stelliance-connect-widget/stelliance-connect-widget-config.model';
-import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { CONFIG_URL } from './stelliance-connect-widget-config.constants';
+import {Injectable} from '@angular/core';
+import {StellianceConnectWidgetConfig} from '../stelliance-connect-widget/stelliance-connect-widget-config.model';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {environment} from "../../environments/environment";
 
 
 const REDIRECT_PARAM = '&redirect_uri';
@@ -11,12 +11,14 @@ const REDIRECT_PARAM = '&redirect_uri';
   providedIn: 'root',
 })
 export class StellianceConnectWidgetConfigService {
-  private configURL = CONFIG_URL;
+  private configBaseURL;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.configBaseURL = environment.configBaseUrl;
+  }
 
-  getWidgetsConfig(): Observable<StellianceConnectWidgetConfig> {
-    return this.http.get<StellianceConnectWidgetConfig>(this.configURL);
+  getWidgetsConfig(environment: string): Observable<StellianceConnectWidgetConfig> {
+    return this.http.get<StellianceConnectWidgetConfig>(this.configBaseURL+`/widget-apps-conf.${environment}.json`);
   }
 
   encodeRedirectUrl(url: string): string {

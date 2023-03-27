@@ -57,7 +57,7 @@ Inputs:
 
 - `appLogoHeight` : define max height in px allowed for each logo image in template. Default value = `'60'`
 
-- `environment`: `'dev'` | `'prod'` (default value: `prod`) to target a specific sso url for each web application.
+- `environment`: `'dev'` | `'prod'` (default value: `dev`) to target a specific sso url for each web application.
 
 - `position`: `'left'` | `'right'` (default value: `left`) to set the horizontal position of the dropdown menu.
 
