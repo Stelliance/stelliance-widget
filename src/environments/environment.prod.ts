@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  configBaseUrl: 'https://stelliance.github.io/stelliance-widget/assets/conf'
 };

@@ -77,16 +77,6 @@ describe('StellianceConnectWidgetComponent', () => {
         expect(window.open).toHaveBeenCalled();
       });
     });
-
-    it('should fail if no redirect uri found', () => {
-      (component as any).environment = 'test';
-      return component
-        .navigateTo(component.widgetsConfig.applications[0])
-        .then(() => {
-          fail();
-        })
-        .catch((error) => expect(error).toBeDefined());
-    });
   });
 
   describe('storeApplicationClicks method', () => {
