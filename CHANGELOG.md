@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/Stelliance/stelliance-widget/compare/v1.0.6...v1.0.7) (2023-03-30)
+
+
+### Bug Fixes
+
+* split configuration file by env ([d608c62](https://github.com/Stelliance/stelliance-widget/commit/d608c62c0c48ccc6e03b8232ff47de8a430b7adb))
+
 ## [1.0.6](https://github.com/Stelliance/stelliance-widget/compare/v1.0.5...v1.0.6) (2023-03-07)
 
 
